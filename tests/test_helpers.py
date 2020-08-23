@@ -1,4 +1,4 @@
-from .context import gest_form_or_gestform as gf
+from .context import gf
 
 def test_is_number_divisible_by_divisor():
     assert gf.helpers.is_number_divisible_by_divisor(15, 3) == True

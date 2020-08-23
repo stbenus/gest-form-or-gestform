@@ -1,13 +1,13 @@
-from .context import gest_form_or_gestform as gf
+from .context import gf
 
 def test_gest():
-    assert gf.number_to_gestform_format(3) == 'Geste'
+    assert gf.translate_number(3) == 'Geste'
 
 def test_form():
-    assert gf.number_to_gestform_format(5) == 'Forme'
+    assert gf.translate_number(5) == 'Forme'
 
 def test_gestform():
-    assert gf.number_to_gestform_format(15) == 'Gestform'
+    assert gf.translate_number(15) == 'Gestform'
 
 def test_number():
-    assert gf.number_to_gestform_format(7) == 7
+    assert gf.translate_number(7) == 7

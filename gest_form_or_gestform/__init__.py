@@ -1,1 +1,2 @@
-from .gest_form_or_gestform import number_to_gestform_format
+from .gest_form_or_gestform import translate_number
+from .main import main

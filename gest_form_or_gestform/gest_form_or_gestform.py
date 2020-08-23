@@ -1,22 +1,24 @@
 from . import helpers
 
-business_formats = [
-    {
-        'divisors': [3],
-        'str': 'Geste',
-    }, {
-        'divisors': [5],
-        'str': 'Forme',
-    }, {
-        'divisors': [3, 5],
-        'str': 'Gestform',
-    }
-]
+# Returns 
+def get_business_formats():
+    return [
+        {
+            'divisors': [3],
+            'str': 'Geste',
+        }, {
+            'divisors': [5],
+            'str': 'Forme',
+        }, {
+            'divisors': [3, 5],
+            'str': 'Gestform',
+        }
+    ]
 
 # Returns passed number or a string according to the value divisibily.
-def number_to_gestform_format(number):
+def translate_number(number):
     ordered_formats = sorted(
-        business_formats,
+        get_business_formats(),
         key = lambda i: len(i['divisors']),
         reverse = True
     )
