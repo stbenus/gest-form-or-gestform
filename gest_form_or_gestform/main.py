@@ -13,28 +13,49 @@ according to their divisibility.
 Returns the number value if no business defined divisibility found. 
 '''
 
+def print_value_error_message(invalid_value):
+    print(f'Invalid value: {invalid_value}')
+
 def main():
     try:
-        randoms_to_generate = int(sys.argv[1])
+        randoms_to_generate = abs(int(sys.argv[1]))
     except IndexError:
         print('You need to pass in a number of randoms to generate.')
         print(help)
         sys.exit()
+    except ValueError:
+        print_value_error_message(sys.argv[1])
+        sys.exit()
+
     try:
         min_value = int(sys.argv[2])
     except IndexError:
         min_value = -1000
+    except ValueError:
+        print_value_error_message(sys.argv[2])
+        sys.exit()
+    
     try:
         max_value = int(sys.argv[3])
     except IndexError:
         max_value = 1000
+    except ValueError:
+        print_value_error_message(sys.argv[3])
+        sys.exit()
+
+    if min_value > max_value:
+        min_value, max_value = max_value, min_value
 
     print(f'Generating and translating {randoms_to_generate} random numbers.')
 
     i = 0
     while i < randoms_to_generate:
-        print(gf.translate_number(random.randint(min_value, max_value)))
-        i += 1
+        try:
+            print(gf.translate_number(random.randint(min_value, max_value)))
+            i += 1
+        except KeyboardInterrupt:
+            print('Try with less randoms to generate next time :).')
+            sys.exit()
     
     print('Finished')
     
