@@ -31,8 +31,10 @@ def main():
 
     print(f'Generating and translating {randoms_to_generate} random numbers.')
 
-    for i in range(randoms_to_generate):
+    i = 0
+    while i < randoms_to_generate:
         print(gf.translate_number(random.randint(min_value, max_value)))
+        i += 1
     
     print('Finished')
     
