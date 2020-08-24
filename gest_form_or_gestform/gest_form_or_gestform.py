@@ -17,6 +17,9 @@ def get_business_formats():
 
 # Returns passed number or a string according to the value divisibily.
 def translate_number(number):
+    if number == 0:
+        return 0
+        
     ordered_formats = sorted(
         get_business_formats(),
         key = lambda i: len(i['divisors']),
