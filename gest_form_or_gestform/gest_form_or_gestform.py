@@ -1,6 +1,6 @@
 from . import helpers
 
-# Returns 
+# Returns the translations rules.
 def get_business_formats():
     return [
         {
@@ -17,15 +17,18 @@ def get_business_formats():
 
 # Returns passed number or a string according to the value divisibily.
 def translate_number(number):
+    # Division by 0 must returns 0
     if number == 0:
         return 0
-        
+    
+    # To process cases of multiple divisors first.
     ordered_formats = sorted(
         get_business_formats(),
         key = lambda i: len(i['divisors']),
         reverse = True
     )
 
+    # Returns the str of the first possible case of division.
     for business_format in ordered_formats:
         if helpers.is_number_divisible_by_divisors(
                 number, business_format['divisors']):
