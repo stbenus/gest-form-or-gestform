@@ -8,8 +8,8 @@ with open('LICENSE') as f:
 
 setup(
     name='gest_form_or_gestform',
-    version='0.1.0',
-    description='Technical test',
+    version='1.0.0',
+    description='A random numbers generator and divisibility based translator',
     long_description=readme,
     author='Benjamin Destruhaut',
     author_email='benjamin.destruhaut@outlook.fr',

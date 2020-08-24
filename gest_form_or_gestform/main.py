@@ -17,12 +17,14 @@ def print_value_error_message(invalid_value):
     print(f'Invalid value: {invalid_value}')
 
 def main():
+    randoms_to_generate = 1
+    min_value = -1000
+    max_value = 1000
+
     try:
         randoms_to_generate = abs(int(sys.argv[1]))
     except IndexError:
-        print('You need to pass in a number of randoms to generate.')
-        print(help)
-        sys.exit()
+        pass
     except ValueError:
         print_value_error_message(sys.argv[1])
         sys.exit()
@@ -30,7 +32,7 @@ def main():
     try:
         min_value = int(sys.argv[2])
     except IndexError:
-        min_value = -1000
+        pass
     except ValueError:
         print_value_error_message(sys.argv[2])
         sys.exit()
@@ -38,7 +40,7 @@ def main():
     try:
         max_value = int(sys.argv[3])
     except IndexError:
-        max_value = 1000
+        pass
     except ValueError:
         print_value_error_message(sys.argv[3])
         sys.exit()
